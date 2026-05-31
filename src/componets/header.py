@@ -2,8 +2,9 @@ import streamlit as st
 import base64
 
 def header_home():
+    logo_path = "assets/images.png"
 
-    logo_path = "/home/rgukt-basar/Downloads/images.png"
+    # logo_path = "/home/rgukt-basar/Downloads/images.png"
 
     with open(logo_path, "rb") as img:
         encoded = base64.b64encode(img.read()).decode()
