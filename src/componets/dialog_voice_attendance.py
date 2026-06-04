@@ -17,7 +17,7 @@ def voice_attendance_dialog(selected_subject_id):
         "<p style='color:white;'>Record classroom audio</p>",
         unsafe_allow_html=True
         )
-    audio_data = st.audio_input("")
+    audio_data = st.audio_input("Record attendance audio")
     # audio_data=st.audio_input('Record classroom  audio')
     if st.button('Analyze audio',width='stretch',type='primary'):
         with st.spinner('Processing audio data'):
