@@ -4,26 +4,42 @@
 
 Making classroom attendance faster, smarter, and hands-free using Face Recognition & Voice Identification.
 # About the Project
+
 SnapClass is a Streamlit-based web application that automates classroom attendance using AI. Teachers can take attendance by simply uploading a class photo or a bulk audio recording. Students self-register with their face and voice, and the system identifies them automatically.
 No roll calls. No manual entry. Just snap and go.
+
 ##Features
 
 🧑‍🏫 Teacher Portal — Register/login, create subjects, take attendance via face or voice
+
 🧑‍🎓 Student Portal — Self-register with face photo and voice sample, enroll in subjects via QR code
+
 📸 Face Recognition — Uses dlib + SVM classifier on 128-dimensional face embeddings
+
 🎙️ Voice Identification — Uses Resemblyzer for speaker embedding and cosine similarity matching
+
 📊 Attendance Records — Per-subject attendance logs with session history
+
 🔗 QR Code Enrollment — Teachers share a join link/QR; students auto-enroll on scan
+
 ☁️ Cloud Backend — Supabase (PostgreSQL) stores all users, embeddings, subjects, and logs
+
 🔒 Secure Auth — Passwords hashed with bcrypt
+
 ##🛠️ Tech Stack
 
 - 🎨 **Frontend & App:** Streamlit
+- 
 - 👤 **Face Recognition:** dlib, face_recognition_models, scikit-learn (SVM)
+- 
 - 🎙️ **Voice Recognition:** Resemblyzer, librosa
+- 
 - 🗄️ **Database:** Supabase (PostgreSQL)
+- 
 - 🖼️ **Image Processing:** Pillow, NumPy
+- 
 - 🔐 **Authentication:** bcrypt
+- 
 - 📱 **QR Code Generation:** segno
 
 ##Project Structure
@@ -64,7 +80,7 @@ The system uses **Supabase (PostgreSQL)** as the backend database.
 
 ### Main Tables
 
-- **teachers** – Stores teacher account information and authentication details.
+- **teachers** – Stores teacher account information and authentication details.  
 - **students** – Stores student profiles along with face and voice embeddings.
 - **subjects** – Stores subject information and teacher assignments.
 - **subject_students** – Maps students to their enrolled subjects.
