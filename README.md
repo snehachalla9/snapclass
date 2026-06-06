@@ -86,40 +86,51 @@ sudo apt-get install cmake build-essential libopenblas-dev liblapack-dev
 brew install cmake
 On Windows: Install CMake and Visual Studio Build Tools.
 ##Installation
+
 ##1.Clone the repository
+
 git clone https://github.com/your-username/snapclass.git
    cd snapclass
 ##2.Create and activate a virtual environment
+
 python -m venv venv
    source venv/bin/activate        # macOS/Linux
    venv\Scripts\activate           # Windows
 ##3.Install dependencies
+
 pip install setuptools==69.0.0   # must come first (dlib requirement)
 pip install -r requirements.txt
  ⚠️ dlib and face_recognition_models take a few minutes to build/install. This is normal.
 ##Environment Setup
+
 SnapClass uses Streamlit secrets for credentials. Create the file .streamlit/secrets.toml in the project root:
 SUPABASE_URL = "https://your-project-id.supabase.co"
 SUPABASE_KEY = "your-supabase-anon-or-service-role-key"
 🔒 Never commit this file. It is (or should be) listed in .gitignore.
 ##Running the App
+
 streamlit run app.py
 The app will open at http://localhost:8501.
 ##How It Works
+
 ##Face Recognition Pipeline
+
 1.Student uploads a photo during registration → dlib extracts a 128-dimensional face embedding.
 2.Embeddings are stored in Supabase.
 3.When teacher uploads a class photo → all student embeddings are loaded and an SVM classifier is trained on the fly (cached with st.cache_resource).
 4.Faces in the class photo are encoded and matched. Students within a distance threshold of 0.40 are marked present.
 ##Voice Identification Pipeline
+
 1.Student records a voice sample during registration → Resemblyzer extracts a speaker embedding.
 2.Teacher uploads a bulk audio recording of the class.
 3.Audio is segmented using librosa silence detection.
 4.Each segment's embedding is compared against all stored embeddings using cosine similarity. Students above a threshold of 0.65 are marked present.
 ##QR Code Enrollment
+
 1.Teacher generates a shareable link with a ?join-code=<subject_code> query parameter.
 2.When a student opens that link, the app auto-detects the join code, switches to the student portal, and opens the enrollment dialog immediately.
 ##Usage Guide
+
 ##As a Teacher
 
 1.Open the app → click Teacher Portal
@@ -129,12 +140,15 @@ The app will open at http://localhost:8501.
 5.Go to Take Attendance → upload a class photo (face) or audio (voice)
 6.View results in Attendance Records
 ##As a Student
+
 1.Open the app → click Student Portal
 2.Register with your name, a clear face photo, and a short voice clip
 3.Log in and go to Enroll in Subject → enter the subject code (or scan the QR link)
 4.Your attendance will be tracked automatically when teachers run recognition
 ##Deployment
+
 ##Deploy on Streamlit Community Cloud (Free)
+
 1.Push your code to a public GitHub repository
 2.Go to share.streamlit.io and connect your repo
 3.Set the main file path to app.py
@@ -149,6 +163,7 @@ SUPABASE_URL = "..."
 2.Add Supabase RLS policies to restrict students from reading other students' embeddings.
 3.Consider caching embeddings locally to avoid re-fetching on every session.
 ##Contributing
+
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
 Fork the repo
