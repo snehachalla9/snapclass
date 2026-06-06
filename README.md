@@ -27,6 +27,7 @@ No roll calls. No manual entry. Just snap and go.
 - 📱 **QR Code Generation:** segno
 
 ##Project Structure
+
 snapclass_deploy/
 ├── app.py                         
 ├── requirements.txt
@@ -81,9 +82,13 @@ The system uses **Supabase (PostgreSQL)** as the backend database.
 > **Note:** dlib requires CMake and a C++ compiler to build successfully.
 
 ##On Ubuntu/Debian:
+
 sudo apt-get install cmake build-essential libopenblas-dev liblapack-dev
+
 ##On macOS:
+
 brew install cmake
+
 On Windows: Install CMake and Visual Studio Build Tools.
 ##Installation
 
@@ -91,6 +96,7 @@ On Windows: Install CMake and Visual Studio Build Tools.
 
 git clone https://github.com/your-username/snapclass.git
    cd snapclass
+   
 ##2.Create and activate a virtual environment
 
 python -m venv venv
