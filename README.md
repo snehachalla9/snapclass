@@ -28,7 +28,7 @@ No roll calls. No manual entry. Just snap and go.
 
 ##Project Structure
 snapclass_deploy/
-├── app.py                          # Entry point — routing between screens
+├── app.py                         
 ├── requirements.txt
 ├── assets/
 │   ├── teacher.png
@@ -95,8 +95,8 @@ python -m venv venv
    venv\Scripts\activate           # Windows
 ##3.Install dependencies
 pip install setuptools==69.0.0   # must come first (dlib requirement)
-   pip install -r requirements.txt
-   ⚠️ dlib and face_recognition_models take a few minutes to build/install. This is normal.
+pip install -r requirements.txt
+ ⚠️ dlib and face_recognition_models take a few minutes to build/install. This is normal.
 ##Environment Setup
 SnapClass uses Streamlit secrets for credentials. Create the file .streamlit/secrets.toml in the project root:
 SUPABASE_URL = "https://your-project-id.supabase.co"
