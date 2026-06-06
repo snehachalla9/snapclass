@@ -116,19 +116,29 @@ git clone https://github.com/your-username/snapclass.git
 ##2.Create and activate a virtual environment
 
 python -m venv venv
-   source venv/bin/activate        # macOS/Linux
+
+   source venv/bin/activate  # macOS/Linux
+   
    venv\Scripts\activate           # Windows
+
 ##3.Install dependencies
 
 pip install setuptools==69.0.0   # must come first (dlib requirement)
+
 pip install -r requirements.txt
+
  ⚠️ dlib and face_recognition_models take a few minutes to build/install. This is normal.
+ 
 ##Environment Setup
 
 SnapClass uses Streamlit secrets for credentials. Create the file .streamlit/secrets.toml in the project root:
+
 SUPABASE_URL = "https://your-project-id.supabase.co"
+
 SUPABASE_KEY = "your-supabase-anon-or-service-role-key"
+
 🔒 Never commit this file. It is (or should be) listed in .gitignore.
+
 ##Running the App
 
 ##streamlit run app.py
